@@ -14,7 +14,6 @@ var questions = [{
 }]
 var correct;
 var turn = false;
-
 function inquiry() {
     inquirer.prompt(questions).then(function (answers) {
         answers.guess = new Letter(answers.guess);
@@ -22,7 +21,6 @@ function inquiry() {
         answers.guess.checkEnd();
     });
 }
-
 function Hangman() {
     fs.readFile('words.txt', 'utf8', function (err, data) {
         wordArray = data.split(',');
@@ -39,7 +37,6 @@ function Hangman() {
     inquiry();
     });
 }
-
 function Word(primary, array, letters, questions) {
     this.primary = primary;
     this.array = primary.split('');
@@ -54,7 +51,6 @@ function Word(primary, array, letters, questions) {
     }
 };
 //inquirer(questions, callback);
-
 function Letter(guess, checkCorrect) {
     this.guess = guess
     this.checkCorrect = function () {
@@ -89,14 +85,9 @@ function Letter(guess, checkCorrect) {
     }
     inquiry();
 }    
-
-
 };
-
 function game() {
     
     Hangman();
-
 }
-
 game();
